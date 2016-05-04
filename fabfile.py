@@ -60,7 +60,7 @@ def apt_update():
 
 def backup_img():
     with cd('tmp'):
-        put('/home/scripts/backup_bz2.sh','/tmp')
+        put('/home/rpi-scripts/backup_bz2.sh','/tmp')
         sudo('/bin/bash backup_bz2.sh')
 
 def pre_backup():
