@@ -59,23 +59,31 @@ def apt_update():
             ft.run('apt-get upgrade')
 
 def backup_img():
-    with cd('tmp'):
+    with settings(warn_only=True):
         put('/home/rpi-scripts/backup_bz2.sh','/tmp')
-        sudo('/bin/bash backup_bz2.sh')
+        sudo('/bin/bash /tmp/backup_bz2.sh')
 
 def pre_backup():
     '''install necessary modules for backup'''
-    
+
     prompts = []
     prompts +=ft.expect('(y/N)','y')
     with ft.expecting(prompts):
+
             ft.run('apt-get install cifs-utils')
             ft.run('atp=get install dosfstools')
             ft.run('atp=get install dump')
             ft.run('atp=get install parted')
             ft.run('atp=get install kpartx')
-            
-        
+            ft.run('apt-get install gparted')
+
+
+def pre_install():
+    with settings(warn_only=True):
+        sudo("curl  https://bootstrap.pypa.io/get-pip.py| python")
+        ## rpi-update need fexpect module
+        put("/tmp/fexpect-0.2.post25-py2-none-any.whl","/tmp")
+        sudo("pip install /tmp/fexpect-0.2.post25-py2-none-any.whl")
 
 def all():
         env.hosts = ['cl-master','cl-node-1','cl-node-2']
