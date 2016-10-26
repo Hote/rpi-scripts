@@ -10,6 +10,8 @@ Personal user script resposity.
 
 # files
 fabfile.py : fabric file for remote control docker swarm node
+rpm-dumplist.sh: a bash script to generate base rpm list in csv format
+rpm-query.py :  a python script that can use to compare the current server rpm list with base csv
 
 
 
