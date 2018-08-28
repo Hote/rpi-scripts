@@ -91,11 +91,15 @@ def all():
 def shutdown():
 
     ## need to remember to shutdown the server last
+    ## need to ignore error and the warnings to contine shutdown other nodes
     env.exclude_hosts=['192.168.200.1']
-    with settings(warn_only=True):
+    with settings(hide('warnings'),warn_only=True):
         sudo ("shutdown -h now")
 
 
 def ex_cmd():
     with settings(warn_only=True):
         sudo ("ifconfig")
+
+
+

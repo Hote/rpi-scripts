@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/softwares/perl-net-sdp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/softwares/shairport" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/softwares/wiringPi" vcs="Git" />
   </component>
 </project>
